@@ -1,12 +1,10 @@
 import mongoose, { Schema } from 'mongoose';
-
-import { DataType, StatisticsType} from '@copyist/web-report-sdk/es/config';
-import {  PageViewStatisticsData} from '@copyist/web-report-sdk/es/data';
-
+import { DataType, StatisticsType } from '@copyist/web-report-sdk';
+import { PageViewStatisticsData } from '@copyist/web-report-sdk';
 // Data去掉path、lastPath、lastElement
 
-/** 页面访问性数据 */
-const PageStatisticsSchema = new Schema({
+/** Page View 页面访问统计 */
+const PageViewStatisticsSchema = new Schema({
   /** 应用id */
   appId: String,
   /** 匿名id */
@@ -17,7 +15,7 @@ const PageStatisticsSchema = new Schema({
   type: {
     type: String,
     enum: Object.keys(DataType),
-    default: DataType.statistics,
+    default: DataType.stability,
   },
   /** 二级类型 */
   subType: {
@@ -48,10 +46,10 @@ const PageStatisticsSchema = new Schema({
   /**页面来源 */
   referrer: String,
   /**浏览器ua parse对象 */
-  userAgent: Object,
+  userAgent: String,
 });
 
 export default mongoose.model<PageViewStatisticsData>(
-  'Pagestistics',
-  PageStatisticsSchema
+  'PageViewstistics',
+  PageViewStatisticsSchema,
 );

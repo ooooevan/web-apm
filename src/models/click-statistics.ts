@@ -1,12 +1,10 @@
 import mongoose, { Schema } from 'mongoose';
-
-import { DataType, StatisticsType} from '@copyist/web-report-sdk/es/config';
-import {  ClickStatisticsData} from '@copyist/web-report-sdk/es/data';
-
+import { DataType, StatisticsType } from '@copyist/web-report-sdk';
+import { ClickStatisticsData } from '@copyist/web-report-sdk';
 // Data去掉path、lastPath、lastElement
 
-/** 页面访问性数据 */
-const PagClickStatisticsSchema = new Schema({
+/** 页面点击数据 */
+const ClickStatisticsSchema = new Schema({
   /** 应用id */
   appId: String,
   /** 匿名id */
@@ -33,6 +31,12 @@ const PagClickStatisticsSchema = new Schema({
   timeStamp: Number,
   /** performance时间 */
   performanceStamp: Number,
+  /** 交互元素路径 */
+  path: String,
+  /** 最后交互的元素 */
+  lastElement: String,
+  /** 最后交互的元素路径 */
+  lastPath: String,
   /**坐标x */
   pageX: Number,
   /**坐标y */
@@ -49,5 +53,5 @@ const PagClickStatisticsSchema = new Schema({
 
 export default mongoose.model<ClickStatisticsData>(
   'Clickstatistics',
-  PagClickStatisticsSchema
+  ClickStatisticsSchema,
 );

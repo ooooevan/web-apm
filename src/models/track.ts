@@ -1,7 +1,7 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
-import { DataType, TrackType } from "@copyist/web-report-sdk/es/config";
-import { Data } from "@copyist/web-report-sdk/es/data";
+import { DataType, TrackType } from '@copyist/web-report-sdk';
+import { Data } from '@copyist/web-report-sdk';
 
 /** 自定义事件 */
 const TrackSchema = new Schema({
@@ -43,4 +43,4 @@ const TrackSchema = new Schema({
   data: Object,
 });
 
-export default mongoose.model<Data>("Track", TrackSchema);
+export default mongoose.model<Data>('Track', TrackSchema);

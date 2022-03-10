@@ -1,8 +1,8 @@
 import mongoose, { Schema } from 'mongoose';
-import { DataType, ErrorType} from '@copyist/web-report-sdk/es/config';
-import {  ErrorData} from '@copyist/web-report-sdk/es/data';
+import { DataType, ErrorType } from '@copyist/web-report-sdk';
+import { ErrorData } from '@copyist/web-report-sdk';
 
-/** 自定义事件 */
+/** 错误事件 */
 const ErrorSchema = new Schema({
   /** 应用id */
   appId: String,
